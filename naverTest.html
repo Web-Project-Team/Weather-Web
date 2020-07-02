@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>간단한 지도 표시하기</title>
+    <script
+      type="text/javascript"
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=6zdq65nm00"
+    ></script>
+  </head>
+
+  <body>
+    <div id="map" style="width: 50%; height: 400px;"></div>
+
+    <script>
+      // 기본지도
+      //   //지도를 삽입할 HTML 요소 또는 HTML 요소의 id를 지정합니다.
+      //   var mapDiv = document.getElementById("map"); // 'map'으로 선언해도 동일
+
+      //   //옵션 없이 지도 객체를 생성하면 서울 시청을 중심으로 하는 16 레벨의 지도가 생성됩니다.
+      //   var map = new naver.maps.Map(mapDiv);
+
+      // 동적 지도
+      var naverNormalMapType = naver.maps.NaverStyleMapTypeOption.getNormalMap();
+      var openStreetMapType = new naver.maps.ImageMapType({
+        name: "OSM",
+        minZoom: 0,
+        maxZoom: 19,
+        tileSize: new naver.maps.Size(256, 256),
+        projection: naver.maps.EPSG3857,
+        repeatX: true,
+        tileSet: [
+          "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+          "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
+          "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        ],
+        provider: [
+          {
+            title: " /OpenStreetMap",
+            link: "http://www.openstreetmap.org/copyright",
+          },
+        ],
+      });
+
+      // 두 개의 mapType으로 된 지도를 생성합니다.
+      var map = new naver.maps.Map("map", {
+        center: new naver.maps.LatLng(37.3595704, 127.105399),
+        mapTypes: new naver.maps.MapTypeRegistry({
+          naver: naverNormalMapType,
+          osm: openStreetMapType,
+        }),
+        mapTypeId: "naver", //지도의 초기 지도 유형 id
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          style: naver.maps.MapTypeControlStyle.BUTTON,
+        },
+      });
+
+      new naver.maps.Marker({
+        position: map.getCenter(),
+        map: map,
+      });
+
+      var stopNotify = false;
+
+      $("#radio-wrap input").on("click", function (e) {
+        var sizeArr = this.value.split("x"),
+          tileSize = new naver.maps.Size(
+            parseInt(sizeArr[0], 10),
+            parseInt(sizeArr[1], 10)
+          );
+
+        function changeTileSize(mapType, tileSize) {
+          var opts = mapType.getMapTypeOptions();
+
+          opts.tileSize = tileSize; // 타일 크기를 변경합니다.
+          mapType.setMapTypeOptions(opts);
+        }
+
+        changeTileSize(naverNormalMapType, tileSize);
+        changeTileSize(openStreetMapType, tileSize);
+
+        stopNotify = true;
+        map.refresh(true);
+        stopNotify = false;
+      });
+
+      var mapOptions = {
+        center: new naver.maps.LatLng(37.3595704, 127.105399),
+        zoom: 10,
+      };
+
+      var map = new naver.maps.Map("map", mapOptions);
+    </script>
+  </body>
+</html>
