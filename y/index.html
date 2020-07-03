@@ -30,14 +30,26 @@
       지도 클릭시 위치 정보 불러오기
     </h2>
     <hr />
+
     <div id="contents">
-      <div id="map"></div>
+      <div id="map">
+        <div class="search">
+          <input
+            id="address"
+            type="text"
+            placeholder="검색할 주소"
+            value="독산로 50"
+          />
+          <input id="submit" type="button" value="주소 검색" />
+        </div>
+      </div>
+
       <div id="weather">날씨 정보 및 코디정보 업로드 예정</div>
       <br /><br />
     </div>
 
     <div style="float: left; clear: left; padding-top: 400px;">
-      <h2>
+      <h2 style="margin-left: 100px;">
         <a href="https://github.com/Web-Project-Team/Weather-Web"> Git 주소</a>
         <br />
         <a href="https://app.asana.com/0/1182979718917895/board"> Asana 주소</a>
