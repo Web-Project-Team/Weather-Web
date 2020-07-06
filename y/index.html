@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Weather Web TEST</title>
 
+    <!-- JQuery -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/7.15.5/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -33,6 +36,7 @@
 
     <div id="contents">
       <div id="map">
+
         <div class="search">
           <input
             id="address"
@@ -56,6 +60,7 @@
       </h2>
     </div>
 
+    <!-- Naver Map API -->
     <script
       type="text/javascript"
       src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=6zdq65nm00"
@@ -66,6 +71,6 @@
       src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=6zdq65nm00&submodules=geocoder"
     ></script>
 
-    <script src="js/naverMap.js"></script>
+    <script type="text/javascript" src="js/naverMap.js"></script>
   </body>
 </html>

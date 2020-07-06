@@ -89,8 +89,10 @@ function searchAddressToCoordinate(address) {
       if (status === naver.maps.Service.Status.ERROR) {
         if (!address) {
           return alert("Geocode Error, Please check address");
+          // return console.log("status : ", status);
         }
         return alert("Geocode Error, address:" + address);
+        // return console.log("Geocode Error, address:" + address);
       }
 
       if (response.v2.meta.totalCount === 0) {
