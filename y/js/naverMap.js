@@ -111,9 +111,9 @@ function searchAddressToCoordinate(address) {
         htmlAddresses.push("[지번 주소] " + item.jibunAddress);
       }
 
-      if (item.englishAddress) {
-        htmlAddresses.push("[영문명 주소] " + item.englishAddress);
-      }
+      // if (item.englishAddress) {
+      //   htmlAddresses.push("[영문명 주소] " + item.englishAddress);
+      // }
 
       infoWindow.setContent(
         [
@@ -153,8 +153,8 @@ function initGeocoder() {
 
     searchAddressToCoordinate($("#address").val());
   });
-
-  searchAddressToCoordinate("정자동 178-1");
+  // 초깃값 설정
+  searchAddressToCoordinate("독산로 50");
 }
 
 naver.maps.onJSContentLoaded = initGeocoder;
