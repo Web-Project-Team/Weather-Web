@@ -25,8 +25,10 @@ function geoFindMe() {
     // 마커 표시
     var marker = new naver.maps.Marker({
       position: new naver.maps.LatLng(_latitude, _longitude),
+      // position: new naver.maps.LatLng(37.4652876, 126.900341),
       map: map,
     });
+    console.log("marker Address : ", _latitude, _longitude);
   }
 
   function error() {
@@ -171,6 +173,7 @@ function initGeocoder() {
   map.addListener("click", function (e) {
     searchCoordinateToAddress(e.coord);
     realTimeWeather(latitude, longitude);
+    console.log("address click : ", latitude, longitude);
   });
 
   $("#address").on("keydown", function (e) {
@@ -190,7 +193,7 @@ function initGeocoder() {
     realTimeWeather(latitude, longitude);
   });
   // 초깃값 설정
-  // searchAddressToCoordinate("독산로 50");
+  searchAddressToCoordinate("독산로 50길 23");
   // realTimeWeather(latitude, longitude);
   realTimeWeather(37.4652876, 126.900341);
   // 독산로 50
@@ -325,8 +328,9 @@ function realTimeWeather(latitude, longitude) {
     _ny = weatherAddress.lng,
     apikey =
       "uKiB5qvKJFlNfc9dwzQJ0uNgc%2B8bgCMhhXlxWTUCPmGYyn51uLm2YGW4uZp1a8eJSnONwUWcxNqq0YSCaS645w%3D%3D",
-    ForecastGribURL = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst";
-      // "http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastGrib";
+    ForecastGribURL =
+      "http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst";
+  // "http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastGrib";
   ForecastGribURL += "?ServiceKey=" + apikey;
   ForecastGribURL += "&base_date=" + today;
   ForecastGribURL += "&base_time=" + hours + "00";

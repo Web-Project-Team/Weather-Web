@@ -3,17 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
+    <meta name="referrer" content="origin" />
+    <!-- <meta
       http-equiv="Content-Security-Policy"
       content="upgrade-insecure-requests"
-    />
+    /> -->
     <title>Weather Web TEST</title>
 
     <!-- JQuery -->
     <script src="js/jquery-3.5.1.min.js"></script>
 
     <!-- cross domainajax -->
-    <!-- <script src="js/jquery.xdomainajax.js"></script> -->
+    <!-- <script src="js/jquery.ajax-cross-origin.min.js"></script> -->
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/7.15.5/firebase-app.js"></script>
@@ -48,7 +49,7 @@
             id="address"
             type="text"
             placeholder="검색할 주소"
-            value="독산로 50"
+            value="독산로 50길 23"
           />
           <input id="submit" type="button" value="주소 검색" />
         </div>
@@ -72,6 +73,12 @@
         <a href="https://github.com/Web-Project-Team/Weather-Web"> Git 주소</a>
         <br />
         <a href="https://app.asana.com/0/1182979718917895/board"> Asana 주소</a>
+        <br />
+        <!-- <a
+          href="http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst?serviceKey=uKiB5qvKJFlNfc9dwzQJ0uNgc%2B8bgCMhhXlxWTUCPmGYyn51uLm2YGW4uZp1a8eJSnONwUWcxNqq0YSCaS645w%3D%3D&numOfRows=10&pageNo=1&base_date=20200708&base_time=0630&nx=55&ny=127&dataType=json"
+        >
+          기상청 API</a
+        > -->
       </h2>
     </div>
 
@@ -86,16 +93,16 @@
       src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=6zdq65nm00&submodules=geocoder"
     ></script>
 
-    <script type="text/javascript" src="js/script.js"></script>
-
     <!-- 기상청 API -->
     <script
       type="text/javascript"
       src="http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst
       ?serviceKey=uKiB5qvKJFlNfc9dwzQJ0uNgc%2B8bgCMhhXlxWTUCPmGYyn51uLm2YGW4uZp1a8eJSnONwUWcxNqq0YSCaS645w%3D%3D
       &numOfRows=10&pageNo=1
-      &base_date=20151201&base_time=0630&nx=55&ny=127
+      &base_date=20200708&base_time=0630&nx=55&ny=127&dataType=json
       "
     ></script>
+
+    <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>
