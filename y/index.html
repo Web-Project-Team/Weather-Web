@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="referrer" content="origin" />
+    <!-- cross domain 해결 -->
     <!-- <meta
       http-equiv="Content-Security-Policy"
       content="upgrade-insecure-requests"
@@ -61,7 +62,7 @@
           <p class="weather-date"></p>
           <ul>
             <li class="weather-temp"></li>
-            <li id="RN1">시간당강수량 : ?</li>
+            <li id="RN1">시간당강수량 : </li>
             <li class="weather-state-text"></li>
           </ul>
         </div>
@@ -74,11 +75,7 @@
         <br />
         <a href="https://app.asana.com/0/1182979718917895/board"> Asana 주소</a>
         <br />
-        <!-- <a
-          href="http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst?serviceKey=uKiB5qvKJFlNfc9dwzQJ0uNgc%2B8bgCMhhXlxWTUCPmGYyn51uLm2YGW4uZp1a8eJSnONwUWcxNqq0YSCaS645w%3D%3D&numOfRows=10&pageNo=1&base_date=20200708&base_time=0630&nx=55&ny=127&dataType=json"
-        >
-          기상청 API</a
-        > -->
+       
       </h2>
     </div>
 
@@ -94,14 +91,14 @@
     ></script>
 
     <!-- 기상청 API -->
-    <script
+    <!-- <script
       type="text/javascript"
       src="http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst
-      ?serviceKey=uKiB5qvKJFlNfc9dwzQJ0uNgc%2B8bgCMhhXlxWTUCPmGYyn51uLm2YGW4uZp1a8eJSnONwUWcxNqq0YSCaS645w%3D%3D
+     // ?serviceKey=uKiB5qvKJFlNfc9dwzQJ0uNgc%2B8bgCMhhXlxWTUCPmGYyn51uLm2YGW4uZp1a8eJSnONwUWcxNqq0YSCaS645w%3D%3D
       &numOfRows=10&pageNo=1
-      &base_date=20200708&base_time=0630&nx=55&ny=127&dataType=json
+      &base_date=20200709&base_time=0630&nx=55&ny=127&dataType=json
       "
-    ></script>
+    ></script> -->
 
     <script type="text/javascript" src="js/script.js"></script>
   </body>
